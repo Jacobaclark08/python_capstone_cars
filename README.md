@@ -1,6 +1,5 @@
 # Python Capstone Car Comparasion
 ## Overview
-in this code
 
  In this code you can add either a sports car or supercar and the specs for that car into the user imput, as many as you want.
  
