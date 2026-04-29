@@ -7,5 +7,5 @@
  
  ---
  
-##What features you'll find her
+#What features you'll find her
 ##Features
