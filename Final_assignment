@@ -40,15 +40,35 @@ class SuperCar(Vehicle):
 
 Cell(4)
 
-vehicles= []
+vehicles = []
+print("--- Add Your Vehicles ---")
 
-vehicles.append(SportsCar("Ford", "Mustang GTD", 325000, 815, 200, 2.8))
-vehicles.append(SportsCar("Chevrolet", "Corvette ZR1X", 150000, 1000, 215, 1.7))
-vehicles.append(SportsCar("Nissan", "GT-R", 122000, 600, 205, 2.5))
-vehicles.append(SuperCar("Lamborghini", "Fenemo", 3500000, 1069, 217, 2.4))
-vehicles.append(SuperCar("Mclaren", "Speedtail", 3000000, 1035, 250, 2.3))
-vehicles.append(SuperCar("Ferrari", "SF90 Stradale", 530000, 986, 211, 2.0))
+while True:
+    category = input("Enter category (Sportscar or Supercar)or done to stop: ").strip().lower()
+    if category == 'done':
+        break
+    
+    brand = input("Brand: ")
+    model = input("Model: ")
+    
+    try:
+        price = float(input("Price (USD): "))
+        horsepower = int(input("Horsepower: "))
+        top_speed = float(input("Top Speed (mph): "))
+        zero_to_sixty = float(input("0-60 mph time (seconds): "))
+    except ValueError:
+        print("Invalid input for numbers! Please try again.\n")
+        continue
 
+    # Append to the correct class 
+    if category == "sportscar":
+        vehicles.append(SportsCar(brand, model, price, horsepower, top_speed, zero_to_sixty))
+    elif category == "supercar":
+        vehicles.append(SuperCar(brand, model, price, horsepower, top_speed, zero_to_sixty))
+    else:
+        print("Category not recognized. Defaulting to standard Vehicle...")
+        vehicles.append(Vehicle(brand, model, price, horsepower, top_speed, zero_to_sixty))
+    print() 
 
 Cell (5)
 
