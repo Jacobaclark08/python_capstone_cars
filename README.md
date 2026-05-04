@@ -6,4 +6,22 @@
  The use for this code is to compare cars to find which suits the best spec for what you want.
  
  ---
-##Function
+## How to run 
+
+Put each cell in seperately and then type in the featurs that you want 
+
+---
+
+## Future work 
+
+In the future the user need to be able to tell what they want to see rather than what was given
+
+---
+
+## Author 
+
+Jacob Clark
+
+---
+
+
