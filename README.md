@@ -16,6 +16,138 @@ Put each cell in seperately and then type in the featurs that you want
 
 In the future the user need to be able to tell what they want to see rather than what was given
 
+Cell(1)
+class Vehicle:
+    def __init__(self, brand, model, price, horsepower, top_speed, zero_to_sixty):
+        self.brand = brand
+        self.model = model
+        self.price = price
+        self.horsepower = horsepower
+        self.top_speed= top_speed
+        self.zero_to_sixty= zero_to_sixty
+
+Cell(2)
+
+class SportsCar(Vehicle):
+    def __init__(self, brand, model, price, horsepower, top_speed, zero_to_sixty):
+        super().__init__(brand, model, price, horsepower, top_speed, zero_to_sixty)
+        
+        self.category="Sportscar"
+        print(f"--- {self.brand} {self.model} Specs ---")
+        print(f"Price: ${self.price:,}")
+        print(f"Horsepower: {self.horsepower} hp")
+        print(f"Top Speed: {self.top_speed} mph")
+        print(f"0-60 mph: {self.zero_to_sixty}s")
+        print("-" * 30)
+        return 
+
+Cell(3)
+
+class SuperCar(Vehicle):
+    def __init__(self, brand, model, price, horsepower, top_speed, zero_to_sixty):
+        super().__init__(brand, model, price, horsepower, top_speed, zero_to_sixty)
+        self.category="Supercar"
+
+        print(f"--- {self.brand} {self.model} Specs ---")
+        print(f"Price: ${self.price:,}")
+        print(f"Horsepower: {self.horsepower} hp")
+        print(f"Top Speed: {self.top_speed} mph")
+        print(f"0-60 mph: {self.zero_to_sixty}s")
+        print("-" * 30)
+        return 
+
+Cell(4)
+
+vehicles = []
+print("--- Add Your Vehicles ---")
+
+while True:
+    category = input("Enter category (Sportscar or Supercar)or done to stop: ").strip().lower()
+    if category == 'done':
+        break
+    
+    brand = input("Brand: ")
+    model = input("Model: ")
+    
+    try:
+        price = float(input("Price (USD): "))
+        horsepower = int(input("Horsepower: "))
+        top_speed = float(input("Top Speed (mph): "))
+        zero_to_sixty = float(input("0-60 mph time (seconds): "))
+    except ValueError:
+        print("Invalid input for numbers! Please try again.\n")
+        continue
+
+    # Append to the correct class 
+    if category == "sportscar":
+        vehicles.append(SportsCar(brand, model, price, horsepower, top_speed, zero_to_sixty))
+    elif category == "supercar":
+        vehicles.append(SuperCar(brand, model, price, horsepower, top_speed, zero_to_sixty))
+    else:
+        print("Category not recognized. Defaulting to standard Vehicle...")
+        vehicles.append(Vehicle(brand, model, price, horsepower, top_speed, zero_to_sixty))
+    print() 
+
+Cell (5)
+
+#calculate which car has the fastest top speed
+fastest= vehicles[0]
+for vehicle in vehicles:
+    if vehicle.top_speed> fastest.top_speed:
+        fastest= vehicle
+
+Cell(6)
+
+#calculate which car has the fastest zero to sixty time
+fastest_zero_to_sixty= vehicles[0]
+for vehicle in vehicles:
+    if vehicle.zero_to_sixty> fastest.zero_to_sixty:
+        fastest_zero_to_sixty= vehicle
+
+Cel(7)
+
+#calculate which car has the most horsepower
+most_hp= vehicles[0]
+for vehicle in vehicles:
+    if vehicle.horsepower> most_hp.horsepower:
+        most_hp= vehicle
+
+Cell(8)
+
+#calculate which car is the most expensive 
+largest_price= vehicles[0]
+for vehicle in vehicles:
+    if vehicle.price> largest_price.price:
+        largest_price= vehicle
+
+Cell(9)
+
+#calculate which car is the least expensive
+cheapest_price= vehicles[0]
+for vehicle in vehicles:
+    if vehicle.price< cheapest_price.price:
+        cheapest_price= vehicle
+
+Cell(10)
+
+print("---Specs For Sports and Super Cars---")
+print("------------------------------")
+print("Fastest Top Speed:", fastest.brand, fastest.model)
+print("Top Speed:", fastest.top_speed, "mph")
+print("------------------------------")
+print("Fastest Zero to Sixty:", fastest_zero_to_sixty.brand)
+print("Zero to Sixty Time:", fastest_zero_to_sixty.zero_to_sixty, "seconds")
+print("------------------------------")
+print("Vehicle With Most Horsepower:", most_hp.brand, most_hp.model)
+print("Horsepower:", most_hp.horsepower)
+print("------------------------------")
+print("Most Expensive:", largest_price.brand, largest_price.model)
+print("Price in USD:$", largest_price.price)
+print("------------------------------")
+print("Least Expensive:", cheapest_price.brand, cheapest_price.model)
+print("Price in USD:$", cheapest_price.price)
+print("------------------------------")
+
 ---
 
 ## Author 
